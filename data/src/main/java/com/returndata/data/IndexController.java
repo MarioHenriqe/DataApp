@@ -32,7 +32,7 @@ public class IndexController {
         ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl +"/4", String.class );
         ObjectMapper mapper = new ObjectMapper();
 
-        telemetryClient.trackEvent(response.toString());
+        telemetryClient.trackEvent("GameApp");
 
         return response;
     }
