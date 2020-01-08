@@ -36,7 +36,7 @@ public class IndexController {
 
         Duration duration = new Duration(1);
 
-        telemetryClient.trackDependency(fooResourceUrl + "/4", "GET", duration, true);
+        telemetryClient.trackDependency(response.getClass().toString(), "GET", duration, true);
         return response;
     }
 }
