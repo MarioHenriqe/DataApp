@@ -7,6 +7,7 @@ import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class IndexController {
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<String> Index(){
         ClientHttpRequestFactory requestFactory = new
                 HttpComponentsClientHttpRequestFactory();
