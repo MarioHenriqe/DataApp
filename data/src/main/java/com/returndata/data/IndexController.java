@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 
-@RestController
+@Controller
 public class IndexController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/")
     public ResponseEntity<String> Index(){
         ClientHttpRequestFactory requestFactory = new
                 HttpComponentsClientHttpRequestFactory();
