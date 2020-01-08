@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: mariohenriqedataapp 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mariohenriqedataapp 
+    spec:
+      containers:
+        - name: mariohenriqedataapp 
+          image: gameapp.azurecr.io/mariohenriqedataapp
+          ports:
+          - containerPort: 8090
