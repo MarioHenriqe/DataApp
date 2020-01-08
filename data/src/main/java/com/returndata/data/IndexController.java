@@ -3,6 +3,7 @@ package com.returndata.data;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.applicationinsights.TelemetryClient;
+import com.microsoft.applicationinsights.telemetry.Duration;
 import com.microsoft.applicationinsights.telemetry.Telemetry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 
+
 @Controller
 public class IndexController {
 
@@ -23,7 +25,7 @@ public class IndexController {
 
 
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<String> Index(){
         ClientHttpRequestFactory requestFactory = new
                 HttpComponentsClientHttpRequestFactory();
@@ -32,8 +34,9 @@ public class IndexController {
         ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl +"/4", String.class );
         ObjectMapper mapper = new ObjectMapper();
 
-        telemetryClient.trackEvent("GameApp");
+        Duration duration = new Duration(1);
 
+        telemetryClient.trackDependency("GameApp", "GET", duration, true);
         return response;
     }
 }
