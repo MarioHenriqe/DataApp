@@ -36,7 +36,7 @@ public class IndexController {
 
         Duration duration = new Duration(1);
 
-        telemetryClient.trackDependency("GameApp", "GET", duration, true);
+        telemetryClient.trackDependency(fooResourceUrl + "/4", "GET", duration, true);
         return response;
     }
 }
