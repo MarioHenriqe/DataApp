@@ -36,7 +36,7 @@ public class IndexController {
 
         Duration duration = new Duration(1);
 
-        telemetryClient.trackDependency("GameApp", "GET", duration, true);
+        telemetryClient.trackDependency("game-cluster-v1-dns-b3a04279.hcp.centralus.azmk8s.io:8085", "GET", duration, true);
         return response;
     }
 }
